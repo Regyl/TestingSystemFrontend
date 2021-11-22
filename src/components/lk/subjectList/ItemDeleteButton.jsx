@@ -18,7 +18,7 @@ class ItemDeleteButton extends Component {
     render() {
         return (
             <Grid item style={{marginLeft: 'auto'}}>
-                <Button variant={"outlined"} id={this.props.item.id}  onClick={this.handleDeleteClick}>
+                <Button variant={"outlined"} id={this.props.item.id} onClick={this.handleDeleteClick} color={"error"}>
                     Удалить
                 </Button>
             </Grid>
