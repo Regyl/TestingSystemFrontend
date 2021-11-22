@@ -51,5 +51,11 @@ export const API = {
     },
     deleteSubject(id) {
         return deleteInstance.delete('/subjects/' + id);
+    },
+    getAllStudentGroups() {
+        return getInstance.get('/students/groups/');
+    },
+    deleteStudentGroup(id) {
+        return deleteInstance.delete('/students/groups/' + id);
     }
 }

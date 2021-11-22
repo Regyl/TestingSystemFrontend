@@ -1,5 +1,5 @@
 const Profession = Object.freeze({
-    Student: "Student",
+    Student: 'Student',
     Professor: 'Professor',
     Administrator: 'Administrator'
 })
