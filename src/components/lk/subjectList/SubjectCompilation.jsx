@@ -5,7 +5,7 @@ import {
     Accordion, AccordionDetails, AccordionSummary,
     Box,
     Button,
-    ButtonBase,
+    ButtonBase, ButtonGroup,
     Card,
     CardActionArea,
     CardActions,
@@ -16,6 +16,7 @@ import {
 import {AddBox, AddCircleOutline, BlurOn, BorderInner, ExpandMore} from "@material-ui/icons";
 import {withRouter} from "react-router-dom";
 import HistoryPaths from "../../../enums/HistoryPaths";
+import CreationButton from "../CreationButton";
 
 const styles = {
     gridItem: {
@@ -33,7 +34,6 @@ class SubjectCompilation extends Component {
             isLoaded: false,
             items: []
         };
-        this.handleCreateSubject = this.handleCreateSubject.bind(this);
     }
 
     componentDidMount() {
@@ -60,8 +60,8 @@ class SubjectCompilation extends Component {
             }
     }
 
-    handleCreateSubject() {
-        this.props.history.push(HistoryPaths.SubjectNew);
+    handleDeleteClick(e) {
+        console.log(e.target.id);
     }
 
     getSubjectList(items) {
@@ -70,31 +70,11 @@ class SubjectCompilation extends Component {
                   style={{width: '100%', height: '100%'}}
                   spacing={2}
             >
-                <Grid item
-                      style={styles.gridItem}
-                >
-                    <Card>
-                        <CardActionArea onClick={this.handleCreateSubject}>
-                            <CardHeader
-                                avatar={<BorderInner />}
-                                title={<Typography variant={"subtitle1"}>
-                                    Создать
-                                </Typography>}
-                            />
-                        </CardActionArea>
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMore />} />
-                            <AccordionDetails>
-                                I'm empty, try again never
-                            </AccordionDetails>
-                        </Accordion>
-                    </Card>
+                <Grid item style={styles.gridItem} >
+                    <CreationButton path={HistoryPaths.SubjectNew} />
                 </Grid>
                 {items.map(item => (
-                    <Grid item
-                          style={styles.gridItem}
-                    >
+                    <Grid item style={styles.gridItem}>
                         <Card>
                             <CardActionArea>
                                 <CardHeader
@@ -105,21 +85,16 @@ class SubjectCompilation extends Component {
                                 />
                             </CardActionArea>
                             <Accordion>
-                                <AccordionSummary
-                                    expandIcon={<ExpandMore />} />
+                                <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>
-                                    <Grid container
-                                          direction={"row"}
-                                    >
+                                    <Grid container direction={"column"} spacing={1}>
                                         <Grid item>
-                                            <Typography variant={"body2"} style={{color: '#A3A3A3'}}>
-                                                id:
-                                            </Typography>
+                                            {this.getId(item)}
                                         </Grid>
                                         <Grid item style={{marginLeft: 'auto'}}>
-                                            <Typography variant={"body2"}>
-                                                {item.id}
-                                            </Typography>
+                                            <Button variant={"outlined"} id={item.id} onClick={this.handleDeleteClick}>
+                                                Удалить
+                                            </Button>
                                         </Grid>
                                     </Grid>
                                 </AccordionDetails>
@@ -127,6 +102,23 @@ class SubjectCompilation extends Component {
                         </Card>
                     </Grid>
                 ))}
+            </Grid>
+        );
+    }
+
+    getId(item) {
+        return (
+            <Grid container direction={"row"}>
+                <Grid item>
+                    <Typography variant={"body2"} style={{color: '#A3A3A3'}}>
+                        id:
+                    </Typography>
+                </Grid>
+                <Grid item style={{marginLeft: 'auto'}}>
+                    <Typography variant={"body2"}>
+                        {item.id}
+                    </Typography>
+                </Grid>
             </Grid>
         );
     }
