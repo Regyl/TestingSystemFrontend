@@ -1,7 +1,7 @@
 import * as axios from "axios";
 const BASE_URL = "http://localhost:8090"; //process.env.TestingSystemUrl
 
-const instance = axios.create({
+const getInstance = axios.create({
     baseURL: BASE_URL,
     method: "GET",
     headers: {
@@ -9,13 +9,18 @@ const instance = axios.create({
     },
 });
 
-const headerInstance = axios.create({
+const postInstance = axios.create({
     baseURL: BASE_URL,
     method: "POST",
     headers: {
         "Content-Type": "application/json",
 
     },
+});
+
+const deleteInstance = axios.create({
+    baseURL: BASE_URL,
+    method: "DELETE"
 });
 
 const login = axios.create({
@@ -30,7 +35,7 @@ const login = axios.create({
 
 export const API = {
     postNewUser(user) {
-        return headerInstance.post("/register", user);
+        return postInstance.post("/register", user);
     },
     loginIn(user) {
         return login.post('/sign-in', user, {withCredentials: true});
@@ -39,6 +44,12 @@ export const API = {
         return login.post('/logout', {withCredentials: true});
     },
     getAllSubjects() {
-        return instance.get('/subjects/');
+        return getInstance.get('/subjects/');
     },
+    postSubject(subject) {
+        return postInstance.post('/subjects/', subject);
+    },
+    deleteSubject(id) {
+        return deleteInstance.delete('/subjects/' + id);
+    }
 }

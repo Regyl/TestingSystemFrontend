@@ -3,6 +3,7 @@ const HistoryPaths = Object.freeze({
     Home: '/home',
     Registration: '/registration',
     Auth: '/authorization',
+    SubjectNew: '/subjects/new'
 
 })
 

@@ -4,8 +4,7 @@ const TabNumber = Object.freeze({
     SubjectList: 1,
     StudentResultList: 2,
     TestPassing: 3,
-    TestCompilation: 4,
-    Fifth: 5
+    TestCompilation: 4
 });
 
 export default TabNumber;

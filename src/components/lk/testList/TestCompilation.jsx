@@ -1,8 +1,8 @@
 import {Component} from "react";
-import SkeletonLoading from "../SkeletonLoading";
+import SkeletonLoading from "../../SkeletonLoading";
 
 
-class TestPassing extends Component {
+class TestCompilation extends Component {
     constructor(props) {
         super(props);
     }
@@ -18,4 +18,4 @@ class TestPassing extends Component {
 
 }
 
-export default TestPassing;
+export default TestCompilation;

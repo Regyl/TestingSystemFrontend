@@ -1,8 +1,7 @@
 import {Component} from "react";
-import SkeletonLoading from "../SkeletonLoading";
+import SkeletonLoading from "../../SkeletonLoading";
 
-
-class StudentGroupCompilation extends Component {
+class StudentResultList extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,11 +10,10 @@ class StudentGroupCompilation extends Component {
     }
 
     render() {
-        return(
+        return (
             <SkeletonLoading />
         );
     }
-
 }
 
-export default StudentGroupCompilation;
+export default StudentResultList;

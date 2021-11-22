@@ -5,6 +5,7 @@ import MainPage from "../mainPage/MainPage";
 import Registration from "../registration/Registration";
 import Authorization from "../authorization/Authorization";
 import Account from "../lk/Account";
+import CreateSubject from "../lk/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
 
 const App = (props) => {
@@ -15,6 +16,7 @@ const App = (props) => {
               <Route path={HistoryPaths.Registration} component={Registration} />
               <Route path={HistoryPaths.Auth} component={Authorization} />
               <Route path={HistoryPaths.Account} component={Account} />
+              <Route path={HistoryPaths.SubjectNew} component={CreateSubject} />
             <Redirect from={'/'} to={HistoryPaths.Home}/>
           </Switch>
     );
