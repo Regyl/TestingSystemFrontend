@@ -7,7 +7,7 @@ import {API} from "../../../api/API";
 import SkeletonLoading from "../../SkeletonLoading";
 
 const columns = [
-    { field: 'id', headerName: 'ID', width: 130 },
+    { field: 'id', headerName: 'ID', width: 300 },
     { field: 'firstName', headerName: 'First name', width: 130 },
     { field: 'lastName', headerName: 'Last name', width: 130 }
 ]
@@ -44,13 +44,13 @@ class StudentGroupEdit extends Component {
                   direction={"column"}
                   alignItems={"center"}
                   spacing={3}
-                  style={{width: '100%', height: '100%'}}
+                  style={{width: '100%'}}
             >
                 <CustomAppBar />
                 <Grid item>
                     {this.getGroupName(this.state.item)}
                 </Grid>
-                <Grid item style={{width: '50%'}}>
+                <Grid item style={{width: '100%', height: 300}}>
                     {this.getStudentList()}
                 </Grid>
                 <Grid item>
@@ -75,7 +75,7 @@ class StudentGroupEdit extends Component {
             return <SkeletonLoading />;
         } else {
             return (
-                <DataGrid columns={columns} rows={this.state.items} />
+                <DataGrid columns={columns} rows={this.state.items} checkboxSelection pageSize={5} rowsPerPageOptions={[5]}/>
             );
         }
     }
