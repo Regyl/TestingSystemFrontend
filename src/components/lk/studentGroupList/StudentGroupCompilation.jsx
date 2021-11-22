@@ -62,7 +62,7 @@ class StudentGroupCompilation extends Component {
                 {items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <ItemCardHeader item={item} />
+                            <ItemCardHeader name={item.shortName + '-' + item.number} />
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>

@@ -18,7 +18,7 @@ import {withRouter} from "react-router-dom";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import CreationButton from "../CreationButton";
 import ItemId from "../itemId";
-import ItemDeletionButton from "./ItemDeleteButton";
+import ItemDeletionButton from "./ItemDeletionButton";
 import ItemCardHeader from "../ItemCardHeader";
 
 const styles = {
@@ -75,7 +75,7 @@ class SubjectCompilation extends Component {
                 {items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <ItemCardHeader item={item} />
+                            <ItemCardHeader name={item.name} />
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>

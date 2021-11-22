@@ -14,7 +14,7 @@ class ItemCardHeader extends Component {
                 <CardHeader
                     avatar={<BlurOn />}
                     title={<Typography variant={"subtitle1"}>
-                        {this.props.item.name}
+                        {this.props.name}
                     </Typography>}
                 />
             </CardActionArea>
