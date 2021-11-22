@@ -4,12 +4,12 @@ import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import Profession from "../../enums/Profession";
 import TabNumber from "./TabNumber";
-import SubjectCompilation from "./SubjectCompilation";
+import SubjectCompilation from "./subjectList/SubjectCompilation";
 import CustomAppBar from "./CustomAppBar";
-import StudentGroupCompilation from "./StudentGroupCompilation";
-import StudentResultList from "./StudentResultList";
+import StudentGroupCompilation from "./studentGroupList/StudentGroupCompilation";
+import StudentResultList from "./studentResultList/StudentResultList";
 import TestPassing from "./TestPassing";
-import TestCompilation from "./TestCompilation";
+import TestCompilation from "./testList/TestCompilation";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -91,7 +91,7 @@ class Account extends Component {
                 <CustomAppBar />
                 <Grid item style={{width: '100%'}}>
                     <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                        <Tabs value={this.state.value} onChange={this.handleChange}>
+                        <Tabs value={this.state.value} onChange={this.handleChange}> {/*TODO: switch to react router*/}
                             {this.state.isCompilationStudentListVisible === false ? "" :
                             <Tab label="Составление списка студентов" value={TabNumber.StudentGroup} {...allyProps(TabNumber.StudentGroup)} />}
                             {this.state.isCompilationSubjectListVisible &&

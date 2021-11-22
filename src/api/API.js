@@ -41,4 +41,7 @@ export const API = {
     getAllSubjects() {
         return instance.get('/subjects/');
     },
+    postSubject(subject) {
+        return headerInstance.post('/subjects/', subject);
+    }
 }
