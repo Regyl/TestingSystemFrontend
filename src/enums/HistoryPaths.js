@@ -4,8 +4,8 @@ const HistoryPaths = Object.freeze({
     Registration: '/registration',
     Auth: '/authorization',
     SubjectNew: '/subjects/new',
-    StudentGroupNew: '/students/groups/new'
-
+    StudentGroupNew: '/students/groups/new',
+    StudentGroupEdit: '/students/groups/edit'
 })
 
 export default HistoryPaths;

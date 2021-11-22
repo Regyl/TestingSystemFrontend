@@ -19,7 +19,7 @@ import HistoryPaths from "../../../enums/HistoryPaths";
 import CreationButton from "../CreationButton";
 import ItemId from "../itemId";
 import ItemDeletionButton from "./ItemDeletionButton";
-import ItemCardHeader from "../ItemCardHeader";
+import ItemCardHeader from "./ItemCardHeader";
 
 const styles = {
     gridItem: {
@@ -75,7 +75,7 @@ class SubjectCompilation extends Component {
                 {items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <ItemCardHeader name={item.name} />
+                            <ItemCardHeader item={item} />
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>

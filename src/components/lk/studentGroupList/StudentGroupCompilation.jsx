@@ -5,7 +5,7 @@ import {Accordion, AccordionDetails, AccordionSummary, Box, Card, Grid} from "@m
 import CreationButton from "../CreationButton";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import {withRouter} from "react-router-dom";
-import ItemCardHeader from "../ItemCardHeader";
+import ItemCardHeader from "./ItemCardHeader";
 import {ExpandMore} from "@material-ui/icons";
 import ItemId from "../itemId";
 import ItemDeletionButton from "./ItemDeletionButton";
@@ -62,7 +62,7 @@ class StudentGroupCompilation extends Component {
                 {items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <ItemCardHeader name={item.shortName + '-' + item.number} />
+                            <ItemCardHeader item={item} />
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>

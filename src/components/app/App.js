@@ -8,6 +8,7 @@ import Account from "../lk/Account";
 import CreateSubject from "../lk/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
 import CreateGroup from "../lk/studentGroupList/CreateGroup";
+import StudentGroupEdit from "../lk/studentGroupList/StudentGroupEdit";
 
 const App = (props) => {
     const { history } = props
@@ -19,6 +20,7 @@ const App = (props) => {
               <Route path={HistoryPaths.Account} component={Account} />
               <Route path={HistoryPaths.SubjectNew} component={CreateSubject} />
               <Route path={HistoryPaths.StudentGroupNew} component={CreateGroup} />
+              <Route path={HistoryPaths.StudentGroupEdit} component={StudentGroupEdit} />
             <Redirect from={'/'} to={HistoryPaths.Home}/>
           </Switch>
     );
