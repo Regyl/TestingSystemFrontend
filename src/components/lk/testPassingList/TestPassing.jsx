@@ -1,5 +1,5 @@
 import {Component} from "react";
-import SkeletonLoading from "../SkeletonLoading";
+import SkeletonLoading from "../../SkeletonLoading";
 
 
 class TestPassing extends Component {

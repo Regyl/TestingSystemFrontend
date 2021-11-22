@@ -8,7 +8,7 @@ import SubjectCompilation from "./subjectList/SubjectCompilation";
 import CustomAppBar from "./CustomAppBar";
 import StudentGroupCompilation from "./studentGroupList/StudentGroupCompilation";
 import StudentResultList from "./studentResultList/StudentResultList";
-import TestPassing from "./TestPassing";
+import TestPassing from "./testPassingList/TestPassing";
 import TestCompilation from "./testList/TestCompilation";
 
 function TabPanel(props) {

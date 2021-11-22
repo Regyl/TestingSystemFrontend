@@ -17,6 +17,9 @@ import {AddBox, AddCircleOutline, BlurOn, BorderInner, ExpandMore} from "@materi
 import {withRouter} from "react-router-dom";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import CreationButton from "../CreationButton";
+import ItemId from "../itemId";
+import ItemDeletionButton from "./ItemDeleteButton";
+import ItemCardHeader from "../ItemCardHeader";
 
 const styles = {
     gridItem: {
@@ -60,65 +63,31 @@ class SubjectCompilation extends Component {
             }
     }
 
-    handleDeleteClick(e) {
-        console.log(e.target.id);
-    }
-
     getSubjectList(items) {
         return (
             <Grid container
-                  style={{width: '100%', height: '100%'}}
+                  style={{width: '100%'}}
                   spacing={2}
             >
-                <Grid item style={styles.gridItem} >
+                <Grid item style={styles.gridItem}>
                     <CreationButton path={HistoryPaths.SubjectNew} />
                 </Grid>
                 {items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <CardActionArea>
-                                <CardHeader
-                                    avatar={<BlurOn />}
-                                    title={<Typography variant={"subtitle1"}>
-                                        {item.name}
-                                    </Typography>}
-                                />
-                            </CardActionArea>
+                            <ItemCardHeader item={item} />
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>
                                     <Grid container direction={"column"} spacing={1}>
-                                        <Grid item>
-                                            {this.getId(item)}
-                                        </Grid>
-                                        <Grid item style={{marginLeft: 'auto'}}>
-                                            <Button variant={"outlined"} id={item.id} onClick={this.handleDeleteClick}>
-                                                Удалить
-                                            </Button>
-                                        </Grid>
+                                        <ItemId item={item} />
+                                        <ItemDeletionButton item={item} />
                                     </Grid>
                                 </AccordionDetails>
                             </Accordion>
                         </Card>
                     </Grid>
                 ))}
-            </Grid>
-        );
-    }
-
-    getId(item) {
-        return (
-            <Grid container direction={"row"}>
-                <Grid item>
-                    <Typography variant={"body2"} style={{color: '#A3A3A3'}}>
-                        id:
-                    </Typography>
-                </Grid>
-                <Grid item style={{marginLeft: 'auto'}}>
-                    <Typography variant={"body2"}>
-                        {item.id}
-                    </Typography>
-                </Grid>
             </Grid>
         );
     }
