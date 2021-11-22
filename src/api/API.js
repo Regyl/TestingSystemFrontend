@@ -60,5 +60,8 @@ export const API = {
     },
     deleteStudentGroup(id) {
         return deleteInstance.delete('/students/groups/' + id);
+    },
+    getAllStudents() {
+        return getInstance.get('/students/');
     }
 }
