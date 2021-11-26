@@ -18,8 +18,8 @@ import {withRouter} from "react-router-dom";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import CreationButton from "../CreationButton";
 import ItemId from "../itemId";
-import ItemDeletionButton from "./ItemDeleteButton";
-import ItemCardHeader from "../ItemCardHeader";
+import ItemDeletionButton from "./ItemDeletionButton";
+import ItemCardHeader from "./ItemCardHeader";
 
 const styles = {
     gridItem: {

@@ -3,7 +3,7 @@ import {Button, Grid} from "@material-ui/core";
 import {API} from "../../../api/API";
 
 
-class ItemDeleteButton extends Component {
+class ItemDeletionButton extends Component {
     constructor(props) {
         super(props);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
@@ -26,4 +26,4 @@ class ItemDeleteButton extends Component {
     }
 }
 
-export default ItemDeleteButton;
+export default ItemDeletionButton;
