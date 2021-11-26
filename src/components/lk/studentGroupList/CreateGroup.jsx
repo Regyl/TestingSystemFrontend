@@ -18,11 +18,11 @@ class CreateGroup extends Component {
     }
 
     handleNameChange(e) {
-        this.setState({name: e.target.value})
+        this.setState({name: e.target.value});
     }
 
     handleNumberChange(e) {
-        this.setState({number: e.target.value})
+        this.setState({number: e.target.value});
     }
 
     handleSubmit() {
