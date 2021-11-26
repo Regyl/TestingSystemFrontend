@@ -63,5 +63,11 @@ export const API = {
     },
     getAllStudents() {
         return getInstance.get('/students/');
+    },
+    getAllFaculties() {
+        return getInstance.get('/subjects/faculties/');
+    },
+    getSubjectsByFaculty(faculty) {
+        return getInstance.get('/subjects/faculties?faculty=' + faculty);
     }
 }

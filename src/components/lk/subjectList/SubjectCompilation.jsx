@@ -20,6 +20,7 @@ import CreationButton from "../CreationButton";
 import ItemId from "../itemId";
 import ItemDeletionButton from "./ItemDeletionButton";
 import ItemCardHeader from "./ItemCardHeader";
+import ItemFaculty from "./ItemFaculty";
 
 const styles = {
     gridItem: {
@@ -81,6 +82,7 @@ class SubjectCompilation extends Component {
                                 <AccordionDetails>
                                     <Grid container direction={"column"} spacing={1}>
                                         <ItemId item={item} />
+                                        <ItemFaculty item={item} />
                                         <ItemDeletionButton item={item} />
                                     </Grid>
                                 </AccordionDetails>

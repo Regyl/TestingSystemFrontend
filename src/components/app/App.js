@@ -9,6 +9,7 @@ import CreateSubject from "../lk/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
 import CreateGroup from "../lk/studentGroupList/CreateGroup";
 import StudentGroupEdit from "../lk/studentGroupList/StudentGroupEdit";
+import TestEdit from "../lk/testList/TestEdit";
 
 const App = (props) => {
     const { history } = props
@@ -18,9 +19,13 @@ const App = (props) => {
               <Route path={HistoryPaths.Registration} component={Registration} />
               <Route path={HistoryPaths.Auth} component={Authorization} />
               <Route path={HistoryPaths.Account} component={Account} />
+
               <Route path={HistoryPaths.SubjectNew} component={CreateSubject} />
+
               <Route path={HistoryPaths.StudentGroupNew} component={CreateGroup} />
               <Route path={HistoryPaths.StudentGroupEdit} component={StudentGroupEdit} />
+
+              <Route path={HistoryPaths.TestEdit} component={TestEdit} />
             <Redirect from={'/'} to={HistoryPaths.Home}/>
           </Switch>
     );
