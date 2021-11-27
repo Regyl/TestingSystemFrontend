@@ -1,25 +1,16 @@
-import {Component} from "react";
-import SkeletonLoading from "../../SkeletonLoading";
+import {Accordion, AccordionDetails, AccordionSummary, Card, Grid} from "@material-ui/core";
+import CustomAppBar from "../CustomAppBar";
 import {API} from "../../../api/API";
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Box,
-    Card, FormControl,
-    Grid,
-    InputLabel,
-    MenuItem,
-    Select
-} from "@material-ui/core";
 import CreationButton from "../CreationButton";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import ItemCardHeader from "./ItemCardHeader";
 import {ExpandMore} from "@material-ui/icons";
 import ItemId from "../itemId";
-import ItemDeletionButton from "../subjectList/ItemDeletionButton";
-import {withRouter} from "react-router-dom";
-import ItemFaculty from "../subjectList/ItemFaculty";
+import ItemParameter from "../ItemParameter";
+import ItemDeletionButton from "./ItemDeletionButton";
+import BackButton from "../../BackButton";
+
+const {Component} = require("react");
 
 const styles = {
     gridItem: {
@@ -35,14 +26,12 @@ class TestCompilation extends Component {
             error: null,
             isLoaded: false,
             items: [],
-            faculty: null,
-            faculties: []
+            subject: this.props.location.state.item
         };
-        this.handleFacultyChange = this.handleFacultyChange.bind(this);
     }
 
     componentDidMount() {
-        API.getAllSubjects().then((res) => {
+        API.getTestsBySubject(this.state.subject.id).then((res) => {
             this.setState({
                 items: res.data,
                 isLoaded: true
@@ -53,67 +42,28 @@ class TestCompilation extends Component {
                 error
             })
         )
-
-        API.getAllFaculties().then((res) => {
-            this.setState({
-                faculties: res.data
-            })
-        })
     }
 
     render() {
-        if(this.state.error) {
-            return <Box>Ошибка</Box>
-        } else if (!this.state.isLoaded) {
-            return <SkeletonLoading />;
-        } else {
-            return(
-                <Grid container style={{width: '100%'}}>
-                    <Grid item style={{width: '90%'}}>
-                        {this.getSubjectList(this.state.items)}
-                    </Grid>
-                    <Grid item style={{marginLeft: 'auto', width: '10%'}}>
-                        <FormControl required style={{width: '100%'}}>
-                            <InputLabel id={"label"}>Кафедра</InputLabel>
-                            <Select
-                                labelId={"label"}
-                                label={"Кафедра *"}
-                                value={this.state.faculty}
-                                onChange={this.handleFacultyChange}
-                            >
-                                {this.state.faculties.map((fac) => (
-                                    <MenuItem value={fac.name}>{fac.value}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                </Grid>
-            );
-        }
-    }
-
-    handleFacultyChange(e) {
-        this.setState({faculty: e.target.value});
-        API.getSubjectsByFaculty(this.state.faculty).then((res) => {
-            this.setState({items: res.data})
-        })
-    }
-
-    getSubjectList(items) {
         return (
-            <Grid container
-                  spacing={2}
-            >
-                {items.map(item => (
+            <Grid container spacing={2}>
+                <CustomAppBar />
+                <Grid item style={styles.gridItem}>
+                    <CreationButton path={HistoryPaths.TestCreate} item={this.state.subject} />
+                </Grid>
+                {this.state.items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <ItemCardHeader item={item} />
+                            <ItemCardHeader item={item} path={HistoryPaths.TestEdit}/>
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>
                                     <Grid container direction={"column"} spacing={1}>
                                         <ItemId item={item} />
-                                        <ItemFaculty item={item} />
+                                        <ItemParameter name={"Доступен с:"} value={item.startsAt} />
+                                        <ItemParameter name={"Доступен до:"} value={item.endsAt} />
+                                        <ItemParameter name={"Курс:"} value={item.term} />
+                                        <ItemDeletionButton item={item} />
                                     </Grid>
                                 </AccordionDetails>
                             </Accordion>
@@ -124,6 +74,7 @@ class TestCompilation extends Component {
         );
     }
 
+
 }
 
-export default withRouter(TestCompilation);
+export default TestCompilation;

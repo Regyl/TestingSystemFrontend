@@ -9,6 +9,7 @@ import ItemCardHeader from "./ItemCardHeader";
 import {ExpandMore} from "@material-ui/icons";
 import ItemId from "../itemId";
 import ItemDeletionButton from "./ItemDeletionButton";
+import GlobalVariables from "../../../enums/GlobalVariables";
 
 const styles = {
     gridItem: {
@@ -43,7 +44,7 @@ class StudentGroupCompilation extends Component {
 
     render() {
         if(this.state.error) {
-            return <Box>Ошибка</Box>
+            return <Box>{GlobalVariables.error}</Box>
         } else if (!this.state.isLoaded) {
             return <SkeletonLoading />;
         } else {

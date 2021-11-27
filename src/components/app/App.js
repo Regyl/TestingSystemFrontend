@@ -4,12 +4,14 @@ import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import MainPage from "../mainPage/MainPage";
 import Registration from "../registration/Registration";
 import Authorization from "../authorization/Authorization";
-import Account from "../lk/Account";
+import Account from "../lk/account/Account";
 import CreateSubject from "../lk/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
 import CreateGroup from "../lk/studentGroupList/CreateGroup";
 import StudentGroupEdit from "../lk/studentGroupList/StudentGroupEdit";
-import TestEdit from "../lk/testList/TestEdit";
+import TestCompilation from "../lk/testList/TestCompilation";
+import CreateTest from "../lk/testList/CreateTest";
+import EditTest from "../lk/testList/EditTest";
 
 const App = (props) => {
     const { history } = props
@@ -25,7 +27,9 @@ const App = (props) => {
               <Route path={HistoryPaths.StudentGroupNew} component={CreateGroup} />
               <Route path={HistoryPaths.StudentGroupEdit} component={StudentGroupEdit} />
 
-              <Route path={HistoryPaths.TestEdit} component={TestEdit} />
+              <Route path={HistoryPaths.TestCompilation} component={TestCompilation} />
+              <Route path={HistoryPaths.TestCreate} component={CreateTest} />
+              <Route path={HistoryPaths.TestEdit} component={EditTest} />
             <Redirect from={'/'} to={HistoryPaths.Home}/>
           </Switch>
     );

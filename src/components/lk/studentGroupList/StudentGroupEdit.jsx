@@ -1,10 +1,11 @@
 import {Component} from "react";
 import {Box, Grid, Typography} from "@material-ui/core";
 import CustomAppBar from "../CustomAppBar";
-import BackButton from "../../backButton";
+import BackButton from "../../BackButton";
 import {DataGrid} from "@material-ui/data-grid";
 import {API} from "../../../api/API";
 import SkeletonLoading from "../../SkeletonLoading";
+import GlobalVariables from "../../../enums/GlobalVariables";
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 300 },
@@ -70,7 +71,7 @@ class StudentGroupEdit extends Component {
 
     getStudentList() {
         if(this.state.error) {
-            return <Box>Ошибка</Box>
+            return <Box>{GlobalVariables.error}</Box>
         } else if (!this.state.isLoaded) {
             return <SkeletonLoading />;
         } else {

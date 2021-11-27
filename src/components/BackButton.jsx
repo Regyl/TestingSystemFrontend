@@ -3,7 +3,7 @@ import {Component} from "react";
 import {withRouter} from "react-router-dom";
 
 
-class backButton extends Component {
+class BackButton extends Component {
     constructor(props) {
         super(props);
         this.onBackClick = this.onBackClick.bind(this);
@@ -23,4 +23,4 @@ class backButton extends Component {
     }
 }
 
-export default withRouter(backButton);
+export default withRouter(BackButton);

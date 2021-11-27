@@ -2,14 +2,14 @@ import {Box, Grid, Tab, Tabs, Typography} from "@material-ui/core";
 import PropTypes from "prop-types";
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
-import Profession from "../../enums/Profession";
+import Profession from "../../../enums/Profession";
 import TabNumber from "./TabNumber";
-import SubjectCompilation from "./subjectList/SubjectCompilation";
-import CustomAppBar from "./CustomAppBar";
-import StudentGroupCompilation from "./studentGroupList/StudentGroupCompilation";
-import StudentResultList from "./studentResultList/StudentResultList";
-import TestPassing from "./testPassingList/TestPassing";
-import TestCompilation from "./testList/TestCompilation";
+import SubjectCompilation from "../subjectList/SubjectCompilation";
+import CustomAppBar from "../CustomAppBar";
+import StudentGroupCompilation from "../studentGroupList/StudentGroupCompilation";
+import StudentResultList from "../studentResultList/StudentResultList";
+import TestPassing from "../testPassingList/TestPassing";
+import TestCompilation from "../testList/SubjectList";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -62,10 +62,10 @@ class Account extends Component {
     componentDidMount() {
         switch(this.state.profession) {
             case Profession.Student:
-                this.setState({isTestPassingTabVisible: true});
+                this.setState({isTestPassingTabVisible: true, value: TabNumber.TestPassing});
                 break;
             case Profession.Professor:
-                this.setState({isCompilationTestsTabVisible: true});
+                this.setState({isCompilationTestsTabVisible: true, value: TabNumber.TestCompilation});
                 break;
             case Profession.Administrator:
                 this.setState({

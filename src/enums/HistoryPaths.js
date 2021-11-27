@@ -6,7 +6,9 @@ const HistoryPaths = Object.freeze({
     SubjectNew: '/subjects/new',
     StudentGroupNew: '/students/groups/new',
     StudentGroupEdit: '/students/groups/edit',
-    TestEdit: '/subjects/tests/edit'
+    TestCompilation: '/subjects/tests/',
+    TestCreate: '/subjects/tests.create/',
+    TestEdit: '/subjects/tests.edit/'
 })
 
 export default HistoryPaths;

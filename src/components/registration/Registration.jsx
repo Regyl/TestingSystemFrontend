@@ -5,7 +5,7 @@ import ProfessorImage from '../../img/registration/professor.jpg'
 import StudentImage from '../../img/registration/student.jpg'
 import ReactCardFlip from "react-card-flip";
 import {API} from "../../api/API";
-import BackButton from "../backButton";
+import BackButton from "../BackButton";
 import Profession from "../../enums/Profession";
 import HistoryPaths from "../../enums/HistoryPaths";
 

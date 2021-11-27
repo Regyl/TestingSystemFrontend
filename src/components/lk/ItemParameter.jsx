@@ -2,10 +2,9 @@ import {Component} from "react";
 import {Grid, Typography} from "@material-ui/core";
 
 
-class ItemFaculty extends Component {
+class ItemParameter extends Component {
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -14,18 +13,19 @@ class ItemFaculty extends Component {
                 <Grid container direction={"row"}>
                     <Grid item>
                         <Typography variant={"body2"} style={{color: '#A3A3A3'}}>
-                            Факультет:
+                            {this.props.name}
                         </Typography>
                     </Grid>
                     <Grid item style={{marginLeft: 'auto'}}>
                         <Typography variant={"body2"}>
-                            {this.props.item.faculty.value}
+                            {this.props.value}
                         </Typography>
                     </Grid>
                 </Grid>
             </Grid>
         );
     }
+
 }
 
-export default ItemFaculty;
+export default ItemParameter;
