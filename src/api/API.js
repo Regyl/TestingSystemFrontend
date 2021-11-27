@@ -80,5 +80,23 @@ export const API = {
     },
     deleteTest(id) {
         return deleteInstance.delete('/tests/'+id);
+    },
+    getQuestionsByTest(testId) {
+        return getInstance.get('/questions/test?id=' + testId);
+    },
+    postQuestion(question) {
+        return postInstance.post('/questions/', question);
+    },
+    deleteQuestion(id) {
+        return deleteInstance.delete('/questions/'+id);
+    },
+    getAnswersByQuestion(id) {
+        return getInstance.get('/answers/question?id=' + id);
+    },
+    postAnswer(answer) {
+        return postInstance.post('/answers/', answer);
+    },
+    deleteAnswer(id) {
+        return deleteInstance.delete('/answers/' + id);
     }
 }

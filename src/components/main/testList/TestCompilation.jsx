@@ -54,7 +54,7 @@ class TestCompilation extends Component {
                 {this.state.items.map(item => (
                     <Grid item style={styles.gridItem}>
                         <Card>
-                            <ItemCardHeader item={item} path={HistoryPaths.TestEdit}/>
+                            <ItemCardHeader item={item} path={HistoryPaths.TestEdit} />
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMore />} />
                                 <AccordionDetails>

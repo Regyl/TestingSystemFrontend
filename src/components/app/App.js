@@ -4,14 +4,17 @@ import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import MainPage from "../mainPage/MainPage";
 import Registration from "../registration/Registration";
 import Authorization from "../authorization/Authorization";
-import Account from "../lk/account/Account";
-import CreateSubject from "../lk/subjectList/CreateSubject";
+import Account from "../main/account/Account";
+import CreateSubject from "../main/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
-import CreateGroup from "../lk/studentGroupList/CreateGroup";
-import StudentGroupEdit from "../lk/studentGroupList/StudentGroupEdit";
-import TestCompilation from "../lk/testList/TestCompilation";
-import CreateTest from "../lk/testList/CreateTest";
-import EditTest from "../lk/testList/EditTest";
+import CreateGroup from "../main/studentGroupList/CreateGroup";
+import StudentGroupEdit from "../main/studentGroupList/StudentGroupEdit";
+import TestCompilation from "../main/testList/TestCompilation";
+import CreateTest from "../main/testList/CreateTest";
+import EditTest from "../main/testList/EditTest";
+import CreateQuestion from "../main/testList/question/CreateQuestion";
+import EditQuestion from "../main/testList/question/EditQuestion";
+import CreateAnswer from "../main/testList/question/answer/CreateAnswer";
 
 const App = (props) => {
     const { history } = props
@@ -30,6 +33,11 @@ const App = (props) => {
               <Route path={HistoryPaths.TestCompilation} component={TestCompilation} />
               <Route path={HistoryPaths.TestCreate} component={CreateTest} />
               <Route path={HistoryPaths.TestEdit} component={EditTest} />
+
+              <Route path={HistoryPaths.QuestionCreate} component={CreateQuestion} />
+              <Route path={HistoryPaths.QuestionUpdate} component={EditQuestion} />
+
+              <Route path={HistoryPaths.AnswerCreate} component={CreateAnswer} />
             <Redirect from={'/'} to={HistoryPaths.Home}/>
           </Switch>
     );

@@ -18,7 +18,7 @@ class ItemParameter extends Component {
                     </Grid>
                     <Grid item style={{marginLeft: 'auto'}}>
                         <Typography variant={"body2"}>
-                            {this.props.value}
+                            {this.props.value} {/*TODO: add 'empty' if null/undefined */}
                         </Typography>
                     </Grid>
                 </Grid>

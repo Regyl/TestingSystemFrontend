@@ -6,6 +6,7 @@ import HistoryPaths from "../../enums/HistoryPaths";
 import {withRouter} from "react-router-dom";
 import GlobalVariables from "../../enums/GlobalVariables";
 import BackButton from "../BackButton";
+import {SpeedDial, SpeedDialAction} from "@material-ui/lab";
 
 class CustomAppBar extends Component {
     constructor(props) {
@@ -39,19 +40,19 @@ class CustomAppBar extends Component {
     render() {
         return(
             <Grid item style={{width: '100%', height: '100%'}}>
-                <AppBar position="static" style={{backgroundColor: GlobalVariables.basicColor}}>
+                <AppBar position={"static"} style={{backgroundColor: GlobalVariables.basicColor}}>
                     <Toolbar>
-                        <Typography variant="h6" component="div">
+                        <Typography variant={"h6"} component={"div"}>
                             {GlobalVariables.name}
                         </Typography>
                         <ButtonGroup style={{marginLeft: 'auto'}}>
                             <IconButton
-                                color="inherit"
+                                color={"inherit"}
                                 onClick={this.onBackClick}>
                                 <ArrowBack />
                             </IconButton>
                             <IconButton
-                                color="inherit"
+                                color={"inherit"}
                                 onClick={this.handleMenu}>
                                 <AccountCircle />
                             </IconButton>
