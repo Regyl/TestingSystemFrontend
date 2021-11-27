@@ -1,21 +1,12 @@
 import React, {Component} from 'react';
-import {
-    Box,
-    Button,
-    ButtonGroup,
-    CardMedia,
-    createTheme,
-    Grid,
-    responsiveFontSizes,
-    ThemeProvider,
-    Typography
-} from "@material-ui/core";
+import {Box, Button, ButtonGroup, CardMedia, Grid, Typography} from "@material-ui/core";
 import FirstImage from '../../img/mainPage/mainBack1.jpg';
 import SecondImage from '../../img/mainPage/mainBack2.jpg';
 import ThirdImage from '../../img/mainPage/mainBack3.jpg';
-import {Link, Router, withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import HistoryPaths from "../../enums/HistoryPaths";
 import GlobalVariables from "../../enums/GlobalVariables";
+
 ;
 const circleSize = 600;
 

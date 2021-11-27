@@ -1,4 +1,5 @@
 import * as axios from "axios";
+
 const BASE_URL = "http://localhost:8090"; //process.env.TestingSystemUrl
 
 const getInstance = axios.create({
@@ -63,5 +64,39 @@ export const API = {
     },
     getAllStudents() {
         return getInstance.get('/students/');
+    },
+    getAllFaculties() {
+        return getInstance.get('/subjects/faculties/');
+    },
+    getSubjectsByFaculty(faculty) {
+        return getInstance.get('/subjects/faculties?faculty=' + faculty);
+    //    TODO: edit
+    },
+    getTestsBySubject(subjectId) {
+        return getInstance.get('/tests/subject?id=' + subjectId);
+    },
+    postTest(test) {
+        return postInstance.post('/tests/', test);
+    },
+    deleteTest(id) {
+        return deleteInstance.delete('/tests/'+id);
+    },
+    getQuestionsByTest(testId) {
+        return getInstance.get('/questions/test?id=' + testId);
+    },
+    postQuestion(question) {
+        return postInstance.post('/questions/', question);
+    },
+    deleteQuestion(id) {
+        return deleteInstance.delete('/questions/'+id);
+    },
+    getAnswersByQuestion(id) {
+        return getInstance.get('/answers/question?id=' + id);
+    },
+    postAnswer(answer) {
+        return postInstance.post('/answers/', answer);
+    },
+    deleteAnswer(id) {
+        return deleteInstance.delete('/answers/' + id);
     }
 }

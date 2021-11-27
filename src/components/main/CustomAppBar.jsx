@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import {AppBar, Grid, IconButton, Menu, MenuItem, Toolbar, Typography} from "@material-ui/core";
-import {AccountCircle} from "@material-ui/icons";
+import {AppBar, ButtonGroup, Grid, IconButton, Menu, MenuItem, Toolbar, Typography} from "@material-ui/core";
+import {AccountCircle, ArrowBack} from "@material-ui/icons";
 import {API} from "../../api/API";
 import HistoryPaths from "../../enums/HistoryPaths";
 import {withRouter} from "react-router-dom";
 import GlobalVariables from "../../enums/GlobalVariables";
-
+import BackButton from "../BackButton";
+import {SpeedDial, SpeedDialAction} from "@material-ui/lab";
 
 class CustomAppBar extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class CustomAppBar extends Component {
         this.handleClose = this.handleClose.bind(this);
         this.handleMenu = this.handleMenu.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.onBackClick = this.onBackClick.bind(this);
     }
 
     handleClose = () => {
@@ -31,21 +33,30 @@ class CustomAppBar extends Component {
         this.handleClose();
     }
 
+    onBackClick() {
+        this.props.history.goBack();
+    }
+
     render() {
         return(
             <Grid item style={{width: '100%', height: '100%'}}>
-                <AppBar position="static" style={{backgroundColor: GlobalVariables.basicColor}}>
+                <AppBar position={"static"} style={{backgroundColor: GlobalVariables.basicColor}}>
                     <Toolbar>
-                        <Typography variant="h6" component="div">
+                        <Typography variant={"h6"} component={"div"}>
                             {GlobalVariables.name}
                         </Typography>
-                        <IconButton
-                            size="medium"
-                            color="inherit"
-                            onClick={this.handleMenu}
-                            style={{marginLeft: 'auto'}}>
-                            <AccountCircle />
-                        </IconButton>
+                        <ButtonGroup style={{marginLeft: 'auto'}}>
+                            <IconButton
+                                color={"inherit"}
+                                onClick={this.onBackClick}>
+                                <ArrowBack />
+                            </IconButton>
+                            <IconButton
+                                color={"inherit"}
+                                onClick={this.handleMenu}>
+                                <AccountCircle />
+                            </IconButton>
+                        </ButtonGroup>
                         <Menu
                             anchorEl={this.state.anchorEl}
                             anchorOrigin={{

@@ -1,25 +1,16 @@
 import {Component} from "react";
 import SkeletonLoading from "../../SkeletonLoading";
 import {API} from "../../../api/API";
-import {
-    Accordion, AccordionDetails, AccordionSummary,
-    Box,
-    Button,
-    ButtonBase, ButtonGroup,
-    Card,
-    CardActionArea,
-    CardActions,
-    CardHeader,
-    Grid, IconButton,
-    Typography
-} from "@material-ui/core";
-import {AddBox, AddCircleOutline, BlurOn, BorderInner, ExpandMore} from "@material-ui/icons";
+import {Accordion, AccordionDetails, AccordionSummary, Box, Card, Grid} from "@material-ui/core";
+import {ExpandMore} from "@material-ui/icons";
 import {withRouter} from "react-router-dom";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import CreationButton from "../CreationButton";
 import ItemId from "../itemId";
 import ItemDeletionButton from "./ItemDeletionButton";
 import ItemCardHeader from "./ItemCardHeader";
+import GlobalVariables from "../../../enums/GlobalVariables";
+import ItemParameter from "../ItemParameter";
 
 const styles = {
     gridItem: {
@@ -55,7 +46,7 @@ class SubjectCompilation extends Component {
 
     render() {
             if(this.state.error) {
-                return <Box>Ошибка</Box>
+                return <Box>{GlobalVariables.error}</Box>
             } else if (!this.state.isLoaded) {
                 return <SkeletonLoading />;
             } else {
@@ -81,6 +72,7 @@ class SubjectCompilation extends Component {
                                 <AccordionDetails>
                                     <Grid container direction={"column"} spacing={1}>
                                         <ItemId item={item} />
+                                        <ItemParameter name={"Факультет:"} value={item.faculty.value} />
                                         <ItemDeletionButton item={item} />
                                     </Grid>
                                 </AccordionDetails>

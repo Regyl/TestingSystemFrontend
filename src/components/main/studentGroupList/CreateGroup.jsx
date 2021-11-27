@@ -1,6 +1,6 @@
 import {Component} from "react";
-import {Box, Button, Grid, TextField} from "@material-ui/core";
-import BackButton from "../../backButton";
+import {Button, Grid, TextField} from "@material-ui/core";
+import BackButton from "../../BackButton";
 import CustomAppBar from "../CustomAppBar";
 import {API} from "../../../api/API";
 

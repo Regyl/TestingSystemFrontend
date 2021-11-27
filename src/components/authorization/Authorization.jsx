@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Chip, Grid, TextField} from "@material-ui/core";
 import {API} from "../../api/API";
-import BackButton from "../backButton";
+import BackButton from "../BackButton";
 import HistoryPaths from "../../enums/HistoryPaths";
 
 const styles = {

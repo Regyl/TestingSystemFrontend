@@ -19,7 +19,7 @@ class CreationButton extends Component {
     }
 
     handleClick() {
-        this.props.history.push(this.props.path);
+        this.props.history.push({pathname: this.props.path, state: {item: this.props.item}});
     }
 
     render() {
