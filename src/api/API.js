@@ -104,5 +104,8 @@ export const API = {
     },
     getTests() {
         return getInstance.get('/tests/');
+    },
+    getTest(id) {
+        return getInstance.get('/tests/' + id);
     }
 }

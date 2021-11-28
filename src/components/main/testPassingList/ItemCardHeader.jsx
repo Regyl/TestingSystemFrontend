@@ -48,15 +48,11 @@ class ItemCardHeader extends Component {
                 </CardActionArea>
                 <Dialog
                     open={this.state.isDialogOpen}
-                    onClose={this.handleClose}
-                >
-                    <DialogTitle>
-                        Вы готовы начать тест?
-                    </DialogTitle>
+                    onClose={this.handleClose}>
+                    <DialogTitle>Вы готовы начать тест?</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            Let Google help apps determine location. This means sending anonymous
-                            location data to Google, even when no apps are running.
+                            Это займет не менее тридцати минут. Советуем сходить за чаем и печеньками. Удачи!
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
