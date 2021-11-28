@@ -31,11 +31,7 @@ class Authorization extends React.Component {
     onLoginClick = () => {
         let user = 'username='+this.state.login+'&password='+this.state.password;
         API.loginIn(user).then((res) => {
-            if(res.data === Profession.Student) {
-                this.props.history.push(HistoryPaths.Account);
-            } else {
-                this.props.history.push({pathname: HistoryPaths.MainAccountPage, state: {profession: res.data}});
-            }
+            this.props.history.push({pathname: HistoryPaths.MainAccountPage, state: {profession: res.data}});
         }).catch((err) => {
             if(err.response.status === 400)
                 this.handleErrorLogin();

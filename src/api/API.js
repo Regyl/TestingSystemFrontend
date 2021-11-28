@@ -98,5 +98,8 @@ export const API = {
     },
     deleteAnswer(id) {
         return deleteInstance.delete('/answers/' + id);
+    },
+    postStudent(student) {
+        return postInstance.post('/students/', student)
     }
 }
