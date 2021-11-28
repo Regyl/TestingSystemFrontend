@@ -7,10 +7,9 @@ import {withRouter} from "react-router-dom";
 class ItemCardHeader extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
+    handleClick = () => {
         this.props.history.push({pathname: this.props.path, state: {item: this.props.item}});
     }
 

@@ -101,5 +101,8 @@ export const API = {
     },
     postStudent(student) {
         return postInstance.post('/students/', student)
+    },
+    getTests() {
+        return getInstance.get('/tests/');
     }
 }

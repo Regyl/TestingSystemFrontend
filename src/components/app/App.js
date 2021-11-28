@@ -16,6 +16,7 @@ import CreateQuestion from "../main/testList/question/CreateQuestion";
 import EditQuestion from "../main/testList/question/EditQuestion";
 import CreateAnswer from "../main/testList/question/answer/CreateAnswer";
 import Account from "../main/account/Account";
+import ItemTestPassing from "../main/testPassingList/ItemTestPassing";
 
 const App = (props) => {
     const { history } = props
@@ -40,6 +41,8 @@ const App = (props) => {
               <Route path={HistoryPaths.QuestionUpdate} component={EditQuestion} />
 
               <Route path={HistoryPaths.AnswerCreate} component={CreateAnswer} />
+
+              <Route path={HistoryPaths.TestPassing} component={ItemTestPassing} />
             <Redirect from={'/'} to={HistoryPaths.Home}/>
           </Switch>
     );

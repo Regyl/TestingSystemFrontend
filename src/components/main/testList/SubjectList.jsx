@@ -38,7 +38,6 @@ class SubjectList extends Component {
             faculty: null,
             faculties: []
         };
-        this.handleFacultyChange = this.handleFacultyChange.bind(this);
     }
 
     componentDidMount() {
@@ -92,7 +91,7 @@ class SubjectList extends Component {
         }
     }
 
-    handleFacultyChange(e) {
+    handleFacultyChange = (e) => {
         this.setState({faculty: e.target.value});
         API.getSubjectsByFaculty(this.state.faculty).then((res) => {
             this.setState({items: res.data})

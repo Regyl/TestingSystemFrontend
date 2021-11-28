@@ -8,7 +8,7 @@ import SubjectCompilation from "../subjectList/SubjectCompilation";
 import CustomAppBar from "../CustomAppBar";
 import StudentGroupCompilation from "../studentGroupList/StudentGroupCompilation";
 import StudentResultList from "../studentResultList/StudentResultList";
-import TestPassing from "../testPassingList/TestPassing";
+import TestList from "../testPassingList/TestList";
 import TestCompilation from "../testList/SubjectList";
 
 function TabPanel(props) {
@@ -113,7 +113,7 @@ class MainAccountPage extends Component {
                         <StudentResultList />
                     </TabPanel>
                     <TabPanel value={this.state.value} index={TabNumber.TestPassing}>
-                        <TestPassing />
+                        <TestList />
                     </TabPanel>
                     <TabPanel value={this.state.value} index={TabNumber.TestCompilation}>
                         <TestCompilation />

@@ -9,8 +9,7 @@ import ItemId from "../itemId";
 import ItemParameter from "../ItemParameter";
 import ItemDeletionButton from "./ItemDeletionButton";
 import BackButton from "../../BackButton";
-
-const {Component} = require("react");
+import {Component} from "react";
 
 const styles = {
     gridItem: {
