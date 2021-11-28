@@ -3,6 +3,7 @@ import {Button, Chip, Grid, TextField} from "@material-ui/core";
 import {API} from "../../api/API";
 import BackButton from "../BackButton";
 import HistoryPaths from "../../enums/HistoryPaths";
+import Profession from "../../enums/Profession";
 
 const styles = {
     mainForm : {
@@ -25,32 +26,23 @@ class Authorization extends React.Component {
             chipVisible: 'none',
             redirect: null
         }
-        this.handleChangeLogin = this.handleChangeLogin.bind(this);
-        this.handleChangePassword = this.handleChangePassword.bind(this);
-        this.onLoginClick = this.onLoginClick.bind(this);
-        this.handleErrorLogin = this.handleErrorLogin.bind(this);
     }
-    handleChangeLogin(e) {
-        this.setState({login: e.target.value});
-    }
-    handleChangePassword(e) {
-        this.setState({password: e.target.value, isButtonDisabled: this.login === '' });
-    }
-    onLoginClick() {
+
+    onLoginClick = () => {
         let user = 'username='+this.state.login+'&password='+this.state.password;
-        API.loginIn(user).then((response) => {
-            this.props.history.push({pathname: HistoryPaths.Account, state: {profession: response.data}});
+        API.loginIn(user).then((res) => {
+            this.props.history.push({pathname: HistoryPaths.MainAccountPage, state: {profession: res.data}});
         }).catch((err) => {
             if(err.response.status === 400)
                 this.handleErrorLogin();
         });
     }
-    handleErrorLogin() {
+
+    handleErrorLogin = () => {
         this.setState({login: '', password: '', isButtonDisabled: true, chipVisible: true})
     }
 
     render() {
-
         return (
             <Grid container
                   direction={"column"}
@@ -70,6 +62,14 @@ class Authorization extends React.Component {
                 </Grid>
             </Grid>
         );
+    }
+
+    handleChangeLogin = (e) => {
+        this.setState({login: e.target.value});
+    }
+
+    handleChangePassword = (e) => {
+        this.setState({password: e.target.value, isButtonDisabled: this.login === '' });
     }
 }
 

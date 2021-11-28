@@ -4,7 +4,7 @@ import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import MainPage from "../mainPage/MainPage";
 import Registration from "../registration/Registration";
 import Authorization from "../authorization/Authorization";
-import Account from "../main/account/Account";
+import MainAccountPage from "../main/account/MainAccountPage";
 import CreateSubject from "../main/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
 import CreateGroup from "../main/studentGroupList/CreateGroup";
@@ -15,6 +15,7 @@ import EditTest from "../main/testList/EditTest";
 import CreateQuestion from "../main/testList/question/CreateQuestion";
 import EditQuestion from "../main/testList/question/EditQuestion";
 import CreateAnswer from "../main/testList/question/answer/CreateAnswer";
+import Account from "../main/account/Account";
 
 const App = (props) => {
     const { history } = props
@@ -23,6 +24,7 @@ const App = (props) => {
               <Route path={HistoryPaths.Home} component={MainPage} />
               <Route path={HistoryPaths.Registration} component={Registration} />
               <Route path={HistoryPaths.Auth} component={Authorization} />
+              <Route path={HistoryPaths.MainAccountPage} component={MainAccountPage} />
               <Route path={HistoryPaths.Account} component={Account} />
 
               <Route path={HistoryPaths.SubjectNew} component={CreateSubject} />
