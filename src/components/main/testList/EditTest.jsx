@@ -11,6 +11,12 @@ import ItemParameter from "../ItemParameter";
 import ItemButton from "./question/ItemButton";
 
 
+const styles = {
+    gridItem: {
+        width: '30%'
+    }
+}
+
 class EditTest extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +26,6 @@ class EditTest extends Component {
             items: [],
             test: this.props.location.state.item
         }
-        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -37,7 +42,7 @@ class EditTest extends Component {
         )
     }
 
-    handleClick() {
+    handleClick = () => {
         this.props.history.push({pathname: HistoryPaths.QuestionCreate, state: {item: this.state.test}});
     }
 
@@ -51,12 +56,12 @@ class EditTest extends Component {
                       alignContent={"center"}
                       alignItems={"center"}>
                     <Grid item>
-                        Тест: {this.state.test.name}
+                        <Typography variant={"h6"}>{this.state.test.name}</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant={"h6"} >Вопросы:</Typography>
+                        Вопросы:
                     </Grid>
-                    <Grid item>
+                    <Grid item style={styles.gridItem}>
                         <Accordion>
                             <CardActionArea onClick={this.handleClick}>
                             <AccordionSummary>
@@ -66,7 +71,7 @@ class EditTest extends Component {
                         </Accordion>
                     </Grid>
                     {this.state.items.map(question => (
-                        <Grid item>
+                        <Grid item style={styles.gridItem}>
                             <Accordion>
                                 <AccordionSummary
                                     expandIcon={<ExpandMore />} >

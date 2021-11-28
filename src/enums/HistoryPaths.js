@@ -1,4 +1,5 @@
 const HistoryPaths = Object.freeze({
+    MainAccountPage: '/account/main',
     Account: '/account',
     Home: '/home',
     Registration: '/registration',

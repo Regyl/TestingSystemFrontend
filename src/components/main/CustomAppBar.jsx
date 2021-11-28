@@ -14,10 +14,6 @@ class CustomAppBar extends Component {
         this.state = {
             anchorEl: null
         }
-        this.handleClose = this.handleClose.bind(this);
-        this.handleMenu = this.handleMenu.bind(this);
-        this.handleLogout = this.handleLogout.bind(this);
-        this.onBackClick = this.onBackClick.bind(this);
     }
 
     handleClose = () => {
@@ -28,12 +24,12 @@ class CustomAppBar extends Component {
         this.setState({anchorEl: event.currentTarget})
     };
 
-    handleLogout() {
+    handleLogout = () => {
         API.logout().then(this.props.history.push(HistoryPaths.Home));
         this.handleClose();
     }
 
-    onBackClick() {
+    onBackClick = () => {
         this.props.history.goBack();
     }
 

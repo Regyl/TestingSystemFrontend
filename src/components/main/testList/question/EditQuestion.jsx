@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {Accordion, AccordionDetails, AccordionSummary, Grid, Typography} from "@material-ui/core";
+import {Accordion, AccordionDetails, AccordionSummary, CardActionArea, Grid, Typography} from "@material-ui/core";
 import CustomAppBar from "../../CustomAppBar";
 import {API} from "../../../../api/API";
 import {ExpandMore} from "@material-ui/icons";
@@ -9,6 +9,11 @@ import CreationButton from "../../CreationButton";
 import HistoryPaths from "../../../../enums/HistoryPaths";
 import ItemDeletionButton from "./answer/ItemDeletionButton";
 
+const styles = {
+    gridItem: {
+        width: '30%'
+    }
+}
 
 class EditQuestion extends Component {
     constructor(props) {
@@ -19,6 +24,7 @@ class EditQuestion extends Component {
             items: [],
             question: this.props.location.state.item
         }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -35,6 +41,10 @@ class EditQuestion extends Component {
         )
     }
 
+    handleClick() {
+        this.props.history.push({pathname: HistoryPaths.AnswerCreate, state: {item: this.state.question}})
+    }
+
     render() {
         return (
             <Grid container>
@@ -43,11 +53,17 @@ class EditQuestion extends Component {
                     <Grid item>
                         <Typography variant={"h6"}>Вопрос: {this.state.question.text}</Typography>
                     </Grid>
-                    <Grid item>
-                        <CreationButton path={HistoryPaths.AnswerCreate} item={this.state.question} />
+                    <Grid item style={styles.gridItem}>
+                        <Accordion>
+                            <CardActionArea onClick={this.handleClick}>
+                                <AccordionSummary>
+                                    Создать
+                                </AccordionSummary>
+                            </CardActionArea>
+                        </Accordion>
                     </Grid>
                     {this.state.items.map(answer => (
-                        <Grid item>
+                        <Grid item style={styles.gridItem}>
                             <Accordion>
                                 <AccordionSummary
                                     expandIcon={<ExpandMore />} >
@@ -55,6 +71,7 @@ class EditQuestion extends Component {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Grid container direction={"column"}>
+                                        <ItemParameter name={"Верный"} value={answer.isCorrect.toString()} />
                                         <ItemDeletionButton item={answer} />
                                     </Grid>
                                 </AccordionDetails>
@@ -65,7 +82,7 @@ class EditQuestion extends Component {
             </Grid>
         )
     }
-
 }
+
 
 export default EditQuestion;
