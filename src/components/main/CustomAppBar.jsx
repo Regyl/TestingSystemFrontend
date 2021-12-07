@@ -5,8 +5,6 @@ import {API} from "../../api/API";
 import HistoryPaths from "../../enums/HistoryPaths";
 import {withRouter} from "react-router-dom";
 import GlobalVariables from "../../enums/GlobalVariables";
-import BackButton from "../BackButton";
-import {SpeedDial, SpeedDialAction} from "@material-ui/lab";
 
 class CustomAppBar extends Component {
     constructor(props) {

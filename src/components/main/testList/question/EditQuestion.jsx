@@ -4,8 +4,6 @@ import CustomAppBar from "../../CustomAppBar";
 import {API} from "../../../../api/API";
 import {ExpandMore} from "@material-ui/icons";
 import ItemParameter from "../../ItemParameter";
-import ItemButton from "./ItemButton";
-import CreationButton from "../../CreationButton";
 import HistoryPaths from "../../../../enums/HistoryPaths";
 import ItemDeletionButton from "./answer/ItemDeletionButton";
 

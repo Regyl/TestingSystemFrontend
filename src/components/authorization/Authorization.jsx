@@ -3,7 +3,6 @@ import {Button, Chip, Grid, TextField} from "@material-ui/core";
 import {API} from "../../api/API";
 import BackButton from "../BackButton";
 import HistoryPaths from "../../enums/HistoryPaths";
-import Profession from "../../enums/Profession";
 
 const styles = {
     mainForm : {

@@ -42,70 +42,73 @@ export const API = {
         return login.post('/sign-in', user, {withCredentials: true});
     },
     logout() {
-        return login.post('/logout', {withCredentials: true});
+        return login.post('/logout');
     },
     getAllSubjects() {
-        return getInstance.get('/subjects/');
+        return getInstance.get('/subjects/', {withCredentials: true});
     },
     postSubject(subject) {
-        return postInstance.post('/subjects/', subject);
+        return postInstance.post('/subjects/', subject, {withCredentials: true});
     },
     deleteSubject(id) {
-        return deleteInstance.delete('/subjects/' + id);
+        return deleteInstance.delete('/subjects/' + id, {withCredentials: true});
     },
     getAllStudentGroups() {
-        return getInstance.get('/students/groups/');
+        return getInstance.get('/students/groups/', {withCredentials: true});
     },
     postStudentGroup(group) {
-        return postInstance.post('/students/groups/', group);
+        return postInstance.post('/students/groups/', group, {withCredentials: true});
     },
     deleteStudentGroup(id) {
-        return deleteInstance.delete('/students/groups/' + id);
+        return deleteInstance.delete('/students/groups/' + id, {withCredentials: true});
     },
     getAllStudents() {
-        return getInstance.get('/students/');
+        return getInstance.get('/students/', {withCredentials: true});
     },
     getAllFaculties() {
-        return getInstance.get('/subjects/faculties/');
+        return getInstance.get('/subjects/faculties/', {withCredentials: true});
     },
     getSubjectsByFaculty(faculty) {
-        return getInstance.get('/subjects/faculties?faculty=' + faculty);
+        return getInstance.get('/subjects/faculties?faculty=' + faculty, {withCredentials: true});
     //    TODO: edit
     },
     getTestsBySubject(subjectId) {
-        return getInstance.get('/tests/subject?id=' + subjectId);
+        return getInstance.get('/tests/subject?id=' + subjectId, {withCredentials: true});
     },
     postTest(test) {
-        return postInstance.post('/tests/', test);
+        return postInstance.post('/tests/', test, {withCredentials: true});
     },
     deleteTest(id) {
-        return deleteInstance.delete('/tests/'+id);
+        return deleteInstance.delete('/tests/'+id, {withCredentials: true});
     },
     getQuestionsByTest(testId) {
-        return getInstance.get('/questions/test?id=' + testId);
+        return getInstance.get('/questions/test?id=' + testId, {withCredentials: true});
     },
     postQuestion(question) {
-        return postInstance.post('/questions/', question);
+        return postInstance.post('/questions/', question, {withCredentials: true});
     },
     deleteQuestion(id) {
-        return deleteInstance.delete('/questions/'+id);
+        return deleteInstance.delete('/questions/'+id, {withCredentials: true});
     },
     getAnswersByQuestion(id) {
-        return getInstance.get('/answers/question?id=' + id);
+        return getInstance.get('/answers/question?id=' + id, {withCredentials: true});
     },
     postAnswer(answer) {
-        return postInstance.post('/answers/', answer);
+        return postInstance.post('/answers/', answer, {withCredentials: true});
     },
     deleteAnswer(id) {
-        return deleteInstance.delete('/answers/' + id);
+        return deleteInstance.delete('/answers/' + id, {withCredentials: true});
     },
     postStudent(student) {
-        return postInstance.post('/students/', student)
+        return postInstance.post('/students/', student, {withCredentials: true})
     },
     getTests() {
-        return getInstance.get('/tests/');
+        return getInstance.get('/tests/', {withCredentials: true});
     },
     getTest(id) {
-        return getInstance.get('/tests/' + id);
+        return getInstance.get('/tests/' + id, {withCredentials: true});
+    },
+    getTestForStudents(testId) {
+        return getInstance.get('/questions/students/test' + testId, {withCredentials: true});
     }
 }

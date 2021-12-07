@@ -4,11 +4,9 @@ import {API} from "../../../api/API";
 import {Accordion, AccordionDetails, AccordionSummary, Box, Card, Grid} from "@material-ui/core";
 import GlobalVariables from "../../../enums/GlobalVariables";
 import ItemCardHeader from "./ItemCardHeader";
-import HistoryPaths from "../../../enums/HistoryPaths";
 import {ExpandMore} from "@material-ui/icons";
 import ItemId from "../itemId";
 import ItemParameter from "../ItemParameter";
-import ItemDeletionButton from "../testList/ItemDeletionButton";
 
 const styles = {
     gridItem: {
