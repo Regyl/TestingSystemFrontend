@@ -83,11 +83,6 @@ class StudentGroupEdit extends Component {
 
     selectRows = (ids) => {
         this.setState({selectedStudents: ids})
-        console.log(this.state.selectedStudents);
-        /*const selectedRowData = this.state.items.filter((row) =>
-            selectedIDs.has(row.id.toString())
-        );
-        console.log(selectedRowData);*/
     }
 
     getStudentList = () => {

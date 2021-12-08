@@ -68,6 +68,7 @@ class MainAccountPage extends Component {
                 break;
             case Profession.Administrator:
                 this.setState({
+                    value: TabNumber.StudentGroup,
                     isCompilationStudentListVisible: true,
                     isCompilationSubjectListVisible: true,
                     isStudentResultListVisible: true

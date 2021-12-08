@@ -102,5 +102,11 @@ export const API = {
     },
     updateStudentsGroup(data) {
         return postInstance.put('/students/group', data, {withCredentials: true});
+    },
+    postStudentResults(body) {
+        return postInstance.post('/students/results/', body, {withCredentials: true});
+    },
+    getAllStudentResults() {
+        return instance.get('/students/results/', {withCredentials: true});
     }
 }

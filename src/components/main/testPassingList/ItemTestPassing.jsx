@@ -2,6 +2,7 @@ import {Component} from "react";
 import {Button, Card, CardHeader, Checkbox, FormControlLabel, Grid, Typography} from "@material-ui/core";
 import CustomAppBar from "../CustomAppBar";
 import {API} from "../../../api/API";
+import {withRouter} from "react-router-dom";
 
 
 class ItemTestPassing extends Component {
@@ -33,18 +34,26 @@ class ItemTestPassing extends Component {
     handleCheckboxChange = (e) => {
         let newArray;
         if(e.target.checked) {
-            newArray = [...this.state.answers, e.target.answerId];
+            newArray = [...this.state.answers, e.target.id];
         } else {
             newArray = [...this.state.answers];
-            newArray = newArray.splice(newArray.indexOf(e.target.answerId), 1);
+            newArray = newArray.splice(newArray.indexOf(e.target.id), 1);
         }
         this.setState({
             answers: newArray
         });
     }
 
-    handleSubmit = (e) => {
-        console.log(this.state.answers.length);
+    handleSubmit = () => {
+        let body = {
+            testId: this.state.test.id,
+            answers: this.state.answers
+        }
+        API.postStudentResults(JSON.stringify(body)).then((res) => {
+            if(res.status === 201) {
+                this.props.history.goBack();
+            }
+        })
     }
 
     render() {
@@ -59,7 +68,7 @@ class ItemTestPassing extends Component {
                                     <Typography variant={"h6"}>{item.text}</Typography>
                                     <Grid container>
                                         {item.answers.map(answer => (
-                                            <FormControlLabel control={<Checkbox onChange={this.handleCheckboxChange} answerId={answer.id}/>} label={answer.text} />
+                                            <FormControlLabel control={<Checkbox onChange={this.handleCheckboxChange} id={answer.id}/>} label={answer.text} />
                                         ))}
                                     </Grid>
                                 </Card>
@@ -76,4 +85,4 @@ class ItemTestPassing extends Component {
 
 }
 
-export default ItemTestPassing;
+export default withRouter(ItemTestPassing);
