@@ -12,7 +12,8 @@ const HistoryPaths = Object.freeze({
     TestEdit: '/subjects/tests.edit/',
     QuestionCreate: '/tests/questions.create/',
     QuestionUpdate: '/tests/questions.edit/',
-    AnswerCreate: '/tests/answers/new'
+    AnswerCreate: '/tests/answers/new',
+    TestPassing: '/tests/pass'
 })
 
 export default HistoryPaths;

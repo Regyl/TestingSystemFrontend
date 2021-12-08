@@ -8,7 +8,7 @@ import SubjectCompilation from "../subjectList/SubjectCompilation";
 import CustomAppBar from "../CustomAppBar";
 import StudentGroupCompilation from "../studentGroupList/StudentGroupCompilation";
 import StudentResultList from "../studentResultList/StudentResultList";
-import TestPassing from "../testPassingList/TestPassing";
+import TestList from "../testPassingList/TestList";
 import TestCompilation from "../testList/SubjectList";
 
 function TabPanel(props) {
@@ -48,7 +48,7 @@ class MainAccountPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0,
+            value: null,
             profession: this.props.location.state.profession,
             isCompilationTestsTabVisible: false,
             isTestPassingTabVisible: false,
@@ -68,6 +68,7 @@ class MainAccountPage extends Component {
                 break;
             case Profession.Administrator:
                 this.setState({
+                    value: TabNumber.StudentGroup,
                     isCompilationStudentListVisible: true,
                     isCompilationSubjectListVisible: true,
                     isStudentResultListVisible: true
@@ -91,7 +92,7 @@ class MainAccountPage extends Component {
                 <Grid item style={{width: '100%'}}>
                     <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
                         <Tabs value={this.state.value} onChange={this.handleChange}> {/*TODO: switch to react router*/}
-                            {this.state.isCompilationStudentListVisible === false ? "" :
+                            {this.state.isCompilationStudentListVisible &&
                             <Tab label="Составление списка студентов" value={TabNumber.StudentGroup} {...allyProps(TabNumber.StudentGroup)} />}
                             {this.state.isCompilationSubjectListVisible &&
                             <Tab label="Составление списка дисциплин" value={TabNumber.SubjectList} {...allyProps(TabNumber.SubjectList)} />}
@@ -113,7 +114,7 @@ class MainAccountPage extends Component {
                         <StudentResultList />
                     </TabPanel>
                     <TabPanel value={this.state.value} index={TabNumber.TestPassing}>
-                        <TestPassing />
+                        <TestList />
                     </TabPanel>
                     <TabPanel value={this.state.value} index={TabNumber.TestCompilation}>
                         <TestCompilation />

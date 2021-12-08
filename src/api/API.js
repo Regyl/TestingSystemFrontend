@@ -2,26 +2,15 @@ import * as axios from "axios";
 
 const BASE_URL = "http://localhost:8090"; //process.env.TestingSystemUrl
 
-const getInstance = axios.create({
-    baseURL: BASE_URL,
-    method: "GET",
-    headers: {
-        "Content-Type": "application/json",
-    },
-});
-
 const postInstance = axios.create({
     baseURL: BASE_URL,
-    method: "POST",
     headers: {
-        "Content-Type": "application/json",
-
-    },
+        "Content-Type": "application/json"
+    }
 });
 
-const deleteInstance = axios.create({
-    baseURL: BASE_URL,
-    method: "DELETE"
+const instance = axios.create({
+    baseURL: BASE_URL
 });
 
 const login = axios.create({
@@ -42,64 +31,82 @@ export const API = {
         return login.post('/sign-in', user, {withCredentials: true});
     },
     logout() {
-        return login.post('/logout', {withCredentials: true});
+        return login.post('/logout');
     },
     getAllSubjects() {
-        return getInstance.get('/subjects/');
+        return instance.get('/subjects/', {withCredentials: true});
     },
     postSubject(subject) {
-        return postInstance.post('/subjects/', subject);
+        return postInstance.post('/subjects/', subject, {withCredentials: true});
     },
     deleteSubject(id) {
-        return deleteInstance.delete('/subjects/' + id);
+        return instance.delete('/subjects/' + id, {withCredentials: true});
     },
     getAllStudentGroups() {
-        return getInstance.get('/students/groups/');
+        return instance.get('/students/groups/', {withCredentials: true});
     },
     postStudentGroup(group) {
-        return postInstance.post('/students/groups/', group);
+        return postInstance.post('/students/groups/', group, {withCredentials: true});
     },
     deleteStudentGroup(id) {
-        return deleteInstance.delete('/students/groups/' + id);
+        return instance.delete('/students/groups/' + id, {withCredentials: true});
     },
     getAllStudents() {
-        return getInstance.get('/students/');
+        return instance.get('/students/', {withCredentials: true});
     },
     getAllFaculties() {
-        return getInstance.get('/subjects/faculties/');
+        return instance.get('/subjects/faculties/', {withCredentials: true});
     },
     getSubjectsByFaculty(faculty) {
-        return getInstance.get('/subjects/faculties?faculty=' + faculty);
+        return instance.get('/subjects/faculties?faculty=' + faculty, {withCredentials: true});
     //    TODO: edit
     },
     getTestsBySubject(subjectId) {
-        return getInstance.get('/tests/subject?id=' + subjectId);
+        return instance.get('/tests/subject?id=' + subjectId, {withCredentials: true});
     },
     postTest(test) {
-        return postInstance.post('/tests/', test);
+        return postInstance.post('/tests/', test, {withCredentials: true});
     },
     deleteTest(id) {
-        return deleteInstance.delete('/tests/'+id);
+        return instance.delete('/tests/'+id, {withCredentials: true});
     },
     getQuestionsByTest(testId) {
-        return getInstance.get('/questions/test?id=' + testId);
+        return instance.get('/questions/test?id=' + testId, {withCredentials: true});
     },
     postQuestion(question) {
-        return postInstance.post('/questions/', question);
+        return postInstance.post('/questions/', question, {withCredentials: true});
     },
     deleteQuestion(id) {
-        return deleteInstance.delete('/questions/'+id);
+        return instance.delete('/questions/'+id, {withCredentials: true});
     },
     getAnswersByQuestion(id) {
-        return getInstance.get('/answers/question?id=' + id);
+        return instance.get('/answers/question?id=' + id, {withCredentials: true});
     },
     postAnswer(answer) {
-        return postInstance.post('/answers/', answer);
+        return postInstance.post('/answers/', answer, {withCredentials: true});
     },
     deleteAnswer(id) {
-        return deleteInstance.delete('/answers/' + id);
+        return instance.delete('/answers/' + id, {withCredentials: true});
     },
     postStudent(student) {
-        return postInstance.post('/students/', student)
+        return postInstance.post('/students/', student, {withCredentials: true})
+    },
+    getTests() {
+        return instance.get('/tests/', {withCredentials: true});
+    },
+    getTest(id) {
+        return instance.get('/tests/' + id, {withCredentials: true});
+    },
+    getTestForStudents(testId) {
+        return instance.get('/questions/students/test?id=' + testId, {withCredentials: true});
+    },
+    updateStudentsGroup(data) {
+        return postInstance.put('/students/group', data, {withCredentials: true});
+    },
+    postStudentResults(body) {
+        return postInstance.post('/students/results/', body, {withCredentials: true});
+    },
+    getAllStudentResults() {
+        return instance.get('/students/results/', {withCredentials: true});
     }
 }

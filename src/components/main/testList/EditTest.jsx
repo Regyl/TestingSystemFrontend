@@ -1,10 +1,8 @@
 import {Component} from "react";
 import {Accordion, AccordionDetails, AccordionSummary, CardActionArea, Grid, Typography} from "@material-ui/core";
 import CustomAppBar from "../CustomAppBar";
-import BackButton from "../../BackButton";
 import {ExpandMore} from "@material-ui/icons";
 import {API} from "../../../api/API";
-import CreationButton from "../CreationButton";
 import HistoryPaths from "../../../enums/HistoryPaths";
 import {withRouter} from "react-router-dom";
 import ItemParameter from "../ItemParameter";
