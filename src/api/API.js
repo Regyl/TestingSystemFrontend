@@ -59,7 +59,6 @@ export const API = {
     },
     getSubjectsByFaculty(faculty) {
         return instance.get('/subjects/faculties?faculty=' + faculty, {withCredentials: true});
-    //    TODO: edit
     },
     getTestsBySubject(subjectId) {
         return instance.get('/tests/subject?id=' + subjectId, {withCredentials: true});

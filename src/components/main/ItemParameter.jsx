@@ -3,9 +3,6 @@ import {Grid, Typography} from "@material-ui/core";
 
 
 class ItemParameter extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -18,7 +15,7 @@ class ItemParameter extends Component {
                     </Grid>
                     <Grid item style={{marginLeft: 'auto'}}>
                         <Typography variant={"body2"}>
-                            {this.props.value} {/*TODO: add 'empty' if null/undefined */}
+                            {this.props.value}
                         </Typography>
                     </Grid>
                 </Grid>

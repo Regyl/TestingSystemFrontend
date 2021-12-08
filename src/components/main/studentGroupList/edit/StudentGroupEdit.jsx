@@ -15,7 +15,14 @@ const columns = [
     { field: 'firstName', headerName: 'Имя', width: 150 },
     { field: 'patronymic', headerName: 'Отчество', width: 150 },
     { field: 'birthDate', headerName: 'Дата рождения', width: 190 },
-    { field: 'group.shortName', headerName: 'Группа', width: 190 },
+    { field: 'groupName', headerName: 'Группа', width: 190, valueGetter: (params) => {
+        if(params.row.group !== null) {
+            return params.row.group.shortName + '-' + params.row.group.number;
+        } else {
+            return 'Отсутсвует';
+        }
+        }
+    },
 ]
 
 class StudentGroupEdit extends Component {
@@ -75,7 +82,7 @@ class StudentGroupEdit extends Component {
             studentIds: this.state.selectedStudents
         }
         API.updateStudentsGroup(JSON.stringify(body)).then((res) => {
-            if(res.data.status === 200) {
+            if(res.status === 200) {
                 this.props.history.goBack();
             }
         })
