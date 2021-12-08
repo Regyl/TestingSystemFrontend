@@ -48,7 +48,7 @@ class MainAccountPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0,
+            value: null,
             profession: this.props.location.state.profession,
             isCompilationTestsTabVisible: false,
             isTestPassingTabVisible: false,
@@ -91,7 +91,7 @@ class MainAccountPage extends Component {
                 <Grid item style={{width: '100%'}}>
                     <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
                         <Tabs value={this.state.value} onChange={this.handleChange}> {/*TODO: switch to react router*/}
-                            {this.state.isCompilationStudentListVisible === false ? "" :
+                            {this.state.isCompilationStudentListVisible &&
                             <Tab label="Составление списка студентов" value={TabNumber.StudentGroup} {...allyProps(TabNumber.StudentGroup)} />}
                             {this.state.isCompilationSubjectListVisible &&
                             <Tab label="Составление списка дисциплин" value={TabNumber.SubjectList} {...allyProps(TabNumber.SubjectList)} />}

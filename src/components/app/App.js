@@ -8,7 +8,7 @@ import MainAccountPage from "../main/account/MainAccountPage";
 import CreateSubject from "../main/subjectList/CreateSubject";
 import HistoryPaths from "../../enums/HistoryPaths";
 import CreateGroup from "../main/studentGroupList/CreateGroup";
-import StudentGroupEdit from "../main/studentGroupList/StudentGroupEdit";
+import StudentGroupEdit from "../main/studentGroupList/edit/StudentGroupEdit";
 import TestCompilation from "../main/testList/TestCompilation";
 import CreateTest from "../main/testList/CreateTest";
 import EditTest from "../main/testList/EditTest";
